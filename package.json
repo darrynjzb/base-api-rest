@@ -4,8 +4,24 @@
   "description": "Base api rest",
   "main": "app.js",
   "scripts": {
+    "start-local": "nodemon app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Darryn Briceño",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "app-root-path": "^3.0.0",
+    "body-parser": "^1.19.0",
+    "compression": "^1.7.4",
+    "cors": "^2.8.5",
+    "dotenv": "^9.0.2",
+    "express": "^4.17.1",
+    "express-routemap": "^1.6.0",
+    "glob": "^7.1.7",
+    "lodash": "^4.17.21"
+  },
+  "devDependencies": {
+    "eslint": "^7.26.0",
+    "nodemon": "^2.0.7"
+  }
 }
