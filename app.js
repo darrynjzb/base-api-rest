@@ -25,9 +25,19 @@ app.use((req, res) => {
 });
 
 app.listen(config.server.port, () => {
-  console.log(`\x1b[33m starting the microservice [ ${config.api.name} ]. at ${Date().toString()}`);
-  console.log(`\x1b[34m listening on port ${config.server.port}`);
-  console.log(`\x1b[32m running environment NODE_ENV=${config.env}`);
+  console.log(`\x1b[32m Starting the microservice [ ${config.api.name} ]. at ${Date().toString()}`);
+  console.log(`\x1b[32m Listening on port ${config.server.port}`);
+  console.log(`\x1b[32m Running environment NODE_ENV=${config.env}`);
 
   displayRoutes(app);
 });
+
+// database check dependencies
+(async () => {
+  let connection;
+  const driver = config.database.driver;
+  if (driver === 'mongodb') {
+    connection = require('./app/database/mongodb/connection');
+  }
+  await connection();
+})();

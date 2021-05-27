@@ -8,5 +8,12 @@ module.exports = {
   api: {
     name: process.env.NODE_CONFIG_API_NAME || 'base-api',
     version: process.env.NODE_CONFIG_API_VERSION || 'v1'
+  },
+  database: {
+    driver: process.env.DATABASE_DRIVER || 'mongodb',
+    mongodb: {
+      host: process.env.MONGODB_HOST || 'mongodb://localhost:27017',
+      collection: process.env.MONGODB_COLLECTION || 'users',
+    }
   }
 };

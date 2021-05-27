@@ -18,7 +18,8 @@
     "express": "^4.17.1",
     "express-routemap": "^1.6.0",
     "glob": "^7.1.7",
-    "lodash": "^4.17.21"
+    "lodash": "^4.17.21",
+    "mongoose": "^5.12.11"
   },
   "devDependencies": {
     "eslint": "^7.26.0",
