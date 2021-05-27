@@ -17,11 +17,20 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(compression());
 
+app.get('/health/', (req, res) => {
+  res.status(200).send({ code: 'OK', message: 'service up and running' })
+});
+
 const routes = require('./app/routes/index');
 app.use(BASE_URL, routes);
 
 app.use((req, res) => {
   return res.status(404).send({ code: 'NOT_FOUND_ROUTE', message: `route ${req.url} not found` });
+});
+
+app.use((err, req, res) => {
+  const msg = { code: err.code, message: err.message }
+  res.status(err.status).send(msg);
 });
 
 app.listen(config.server.port, () => {

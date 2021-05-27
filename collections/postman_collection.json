@@ -11,14 +11,41 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{domain}}/api/v1/health/",
+					"raw": "{{domain}}/health/",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"health",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create user",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"_darrynj\",\n    \"name\": \"Darryn\",\n    \"lastname\": \"Briceño\",\n    \"document\": \"95693469\",\n    \"email\": \"darrynjzb@gmail.com\",\n    \"birthdate\": \"1992/09/16\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{domain}}/api/v1/users/",
 					"host": [
 						"{{domain}}"
 					],
 					"path": [
 						"api",
 						"v1",
-						"health",
+						"users",
 						""
 					]
 				}

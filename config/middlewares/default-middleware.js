@@ -1,5 +1,8 @@
 module.exports = {
-  health: [
-    'health-check-middleware'
-  ]
+  users: {
+    create: [
+      'validate-body-create-user-middleware',
+      'create-user-middleware'
+    ]
+  }
 };

@@ -4,6 +4,6 @@ const { getMiddlewares } = require('../utils/get-middlewares');
 
 const router = Router();
 
-router.get('/health/', getMiddlewares(config.middlewares.health));
+router.post('/users/', getMiddlewares(config.middlewares.users.create));
 
 module.exports = router;
