@@ -8,6 +8,7 @@ module.exports = {
   api: {
     name: process.env.NODE_CONFIG_API_NAME,
     version: process.env.NODE_CONFIG_API_VERSION,
+    blacklistMask: process.env.NODE_CONFIG_API_BLACKLIST_MASK
   },
   database: {
     driver: process.env.DATABASE_DRIVER,
