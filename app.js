@@ -24,21 +24,21 @@ app.get('/health/', (req, res) => {
 const routes = require('./app/routes/index');
 app.use(BASE_URL, routes);
 
-app.use((req, res) => {
-  return res.status(404).send({ code: 'NOT_FOUND_ROUTE', message: `route ${req.url} not found` });
-});
-
-app.use((err, req, res) => {
-  const msg = { code: err.code, message: err.message }
-  res.status(err.status).send(msg);
-});
-
 app.listen(config.server.port, () => {
   console.log(`\x1b[32m Starting the microservice [ ${config.api.name} ]. at ${Date().toString()}`);
   console.log(`\x1b[32m Listening on port ${config.server.port}`);
   console.log(`\x1b[32m Running environment NODE_ENV=${config.env}`);
 
   displayRoutes(app);
+});
+
+app.use((err, req, res, next) => {
+  const msg = { code: err.code, message: err.message }
+  res.status(err.status).send(msg);
+});
+
+app.use((req, res) => {
+  return res.status(404).send({ code: 'NOT_FOUND_ROUTE', message: `route ${req.url} not found` });
 });
 
 // database check dependencies

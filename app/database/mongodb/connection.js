@@ -8,9 +8,10 @@ module.exports = async () => {
     return instance;
   }
   const host = config.database.mongodb.host;
-  const collection = config.database.mongodb.collection;
+  const database = config.database.mongodb.databaseName;
   try {
-    instance = await mongoose.connect(`${host}/${collection}`, { useNewUrlParser: true, useUnifiedTopology: true });
+    mongoose.set('useCreateIndex', true);
+    instance = await mongoose.connect(`${host}/${database}`, { useNewUrlParser: true, useUnifiedTopology: true });
     console.log(`\x1b[32m === Mongodb connected ===`);
     return instance;
   } catch (e) {

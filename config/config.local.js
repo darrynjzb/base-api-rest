@@ -13,7 +13,7 @@ module.exports = {
     driver: process.env.DATABASE_DRIVER || 'mongodb',
     mongodb: {
       host: process.env.MONGODB_HOST || 'mongodb://localhost:27017',
-      collection: process.env.MONGODB_COLLECTION || 'users',
+      databaseName: process.env.MONGODB_DATABASE_NAME || 'project',
     }
   }
 };

@@ -7,6 +7,13 @@ module.exports = {
   },
   api: {
     name: process.env.NODE_CONFIG_API_NAME,
-    version: process.env.NODE_CONFIG_API_VERSION
+    version: process.env.NODE_CONFIG_API_VERSION,
+  },
+  database: {
+    driver: process.env.DATABASE_DRIVER,
+    mongodb: {
+      host: process.env.MONGODB_HOST,
+      databaseName: process.env.MONGODB_DATABASE_NAME,
+    }
   }
 };
