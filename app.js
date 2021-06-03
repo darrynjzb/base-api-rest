@@ -28,6 +28,7 @@ app.listen(config.server.port, () => {
   console.log(`\x1b[32m Starting the microservice [ ${config.api.name} ]. at ${Date().toString()}`);
   console.log(`\x1b[32m Listening on port ${config.server.port}`);
   console.log(`\x1b[32m Running environment NODE_ENV=${config.env}`);
+  console.log(`\x1b[32m Configuration middlewares: ${JSON.stringify(config.middlewares)}`);
 
   displayRoutes(app);
 });
