@@ -25,3 +25,9 @@ npm run start-local
 ## Postman collection
 
 The is a postman collection to test the endpoints locally. The collection is in **app/collections/postman-collection.json**
+
+## TODO
+
+- Map and handle errors into middleware layer (catch block)
+- Write to file logger
+- Recursive search into getMiddlewares method
