@@ -9,23 +9,23 @@ class Facade {
   }
 
   async find(args) {
-    return await this.Model.find(...args).exec();
+    return await this.Model.find(args).exec();
   }
 
   async findOne(args) {
-    return await this.Model.findOne(...args).exec();
+    return await this.Model.findOne(args).exec();
   }
 
   async findById(args) {
-    return await this.Model.findById(...args).exec();
+    return await this.Model.findById(args).exec();
   }
 
   async update(args) {
-    return await this.Model.updateOne(...args).exec();
+    return await this.Model.updateOne(args).exec();
   }
 
   async remove(args) {
-    return await this.Model.remove(...args).exec();
+    return await this.Model.remove(args).exec();
   }
 }
 

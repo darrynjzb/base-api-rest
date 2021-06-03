@@ -7,11 +7,12 @@ const { maskSensitiveData } = require('../utils/mask');
 const MODULE_NAME = 'create-user-middleware.js';
 
 module.exports.createUserMiddleware = async (req, res, next) => {
+  const methodName = 'createUserMiddleware';
   try {
     logger({
       level: 'info',
       moduleName: MODULE_NAME,
-      methodName: 'createUserMiddleware',
+      methodName,
       description: `trying to create user with data: ${maskSensitiveData(req.body)}`
     });
     await controller.create(req.body);
@@ -21,9 +22,9 @@ module.exports.createUserMiddleware = async (req, res, next) => {
     logger({
       level: 'error',
       moduleName: MODULE_NAME,
-      methodName: 'createUserMiddleware',
+      methodName,
       description: `error trying to create user with data: ${maskSensitiveData(e)}`
     });
-    return next(new BadRequestError('USER_CREATE_ERROR', 'error trying to create user'));
+    return next(new BadRequestError('ERROR_CREATE_USER', 'error trying to create user'));
   }
 };

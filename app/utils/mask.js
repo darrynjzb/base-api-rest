@@ -15,8 +15,8 @@ const maskJson = require('mask-json')(blacklist, getMaskOptions);
  * @param {JSON} data 
  */
 const maskSensitiveData = (data) => {
-  const deepClone = _.cloneDeep(data);
-  const masked = maskJson(deepClone);
+  const shallow = _.cloneDeep(data);
+  const masked = maskJson(shallow);
   return JSON.stringify(masked);
 };
 
