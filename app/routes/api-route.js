@@ -6,5 +6,6 @@ const router = Router();
 
 router.post('/users/', getMiddlewares(config.middlewares.users.create));
 router.get('/users/:id', getMiddlewares(config.middlewares.users.getById));
+router.patch('/users/:id', getMiddlewares(config.middlewares.users.update));
 
 module.exports = router;

@@ -4,31 +4,31 @@ const { setResponseWithOk } = require('../utils/common-response');
 const { logger } = require('../utils/common-logger');
 const { maskSensitiveData } = require('../utils/mask');
 
-const MODULE_NAME = 'get-user-by-id-middleware.js';
+const MODULE_NAME = 'update-user-by-id-middleware.js';
 
-module.exports.getUserByIdMiddleware = async (req, res, next) => {
-  const methodName = 'getUserByIdMiddleware';
+module.exports.updateUserByIdMiddleware = async (req, res, next) => {
+  const methodName = 'updateUserByIdMiddleware';
   try {
     const args = { _id: req.params.id };
     logger({
       level: 'info',
       moduleName: MODULE_NAME,
       methodName,
-      description: `trying to get user by id with args: ${maskSensitiveData(args)}`
+      description: `trying to update user with data: ${maskSensitiveData(req.body)}, args ${maskSensitiveData(args)}`
     });
-    const user = await controller.findById(args);
-    if (!user) {
+    const user = await controller.update(args, req.body);
+    if (!user.value) {
       return next(new NotFoundError('USER_NOT_FOUND', 'the user not exist'));
     }
-    return setResponseWithOk(res, 200, user);
+    return setResponseWithOk(res, 200, 'user updated successfully');
   } catch (e) {
     // TODO: mapeo y handleo de errores
     logger({
       level: 'error',
       moduleName: MODULE_NAME,
       methodName,
-      description: `error trying to get user by id: ${maskSensitiveData(e)}`
+      description: `error trying to update user: ${maskSensitiveData(e)}`
     });
-    return next(new BadRequestError('ERROR_GET_USER_BY_ID', 'error trying to get user by id'));
+    return next(new BadRequestError('ERROR_CREATE_USER', 'error trying to create user'));
   }
 };

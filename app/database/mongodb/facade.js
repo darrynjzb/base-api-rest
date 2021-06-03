@@ -8,24 +8,16 @@ class Facade {
     return await model.save();
   }
 
-  async find(args) {
-    return await this.Model.find(args).exec();
-  }
-
-  async findOne(args) {
-    return await this.Model.findOne(args).exec();
-  }
-
   async findById(args) {
     return await this.Model.findById(args).exec();
   }
 
-  async update(args) {
-    return await this.Model.updateOne(args).exec();
+  async update(condition, dataToUpdate, options = { new: true, rawResult: true }) {
+    return await this.Model.findOneAndUpdate(condition, dataToUpdate, options).exec();
   }
 
-  async remove(args) {
-    return await this.Model.remove(args).exec();
+  async remove(condition) {
+    return await this.Model.findOneAndRemove(condition).exec();
   }
 }
 

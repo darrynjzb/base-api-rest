@@ -16,14 +16,14 @@ module.exports.createUserMiddleware = async (req, res, next) => {
       description: `trying to create user with data: ${maskSensitiveData(req.body)}`
     });
     await controller.create(req.body);
-    return setResponseWithOk(res, 200, 'user created successfully');
+    return setResponseWithOk(res, 201, 'user created successfully');
   } catch (e) {
     // TODO: mapeo y handleo de errores
     logger({
       level: 'error',
       moduleName: MODULE_NAME,
       methodName,
-      description: `error trying to create user with data: ${maskSensitiveData(e)}`
+      description: `error trying to create user: ${maskSensitiveData(e)}`
     });
     return next(new BadRequestError('ERROR_CREATE_USER', 'error trying to create user'));
   }
