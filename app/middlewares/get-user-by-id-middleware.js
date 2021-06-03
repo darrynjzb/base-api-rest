@@ -18,7 +18,7 @@ module.exports.getUserByIdMiddleware = async (req, res, next) => {
     });
     const user = await controller.findById(args);
     if (!user) {
-      return next(new NotFoundError('ERROR_USER_NOT_FOUND', 'the user not exist'));
+      return next(new NotFoundError('USER_NOT_FOUND', 'the user not exist'));
     }
     return setResponseWithOk(res, 200, user);
   } catch (e) {
@@ -29,6 +29,6 @@ module.exports.getUserByIdMiddleware = async (req, res, next) => {
       methodName,
       description: `error trying to create user with data: ${maskSensitiveData(e)}`
     });
-    return next(new BadRequestError('ERROR_GET_BY_ID_USER', 'error trying to get user by id'));
+    return next(new BadRequestError('ERROR_GET_USER_BY_ID', 'error trying to get user by id'));
   }
 };

@@ -14,7 +14,7 @@ module.exports.validateBodyCreateUserMiddleware = (req, res, next) => {
       methodName: 'validateBodyCreateUserMiddleware',
       description: `error trying to validate body: ${maskSensitiveData(error.details)}`
     });
-    throw new BadRequestError('USER_ERROR_BODY', 'the body is not correct');
+    throw new BadRequestError('INVALID_BODY', 'the body is not correct');
   }
   return next();
 };

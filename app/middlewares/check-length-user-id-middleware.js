@@ -13,7 +13,7 @@ module.exports.checkLengthUserIdMiddleware = (req, res, next) => {
       methodName: 'checkLengthUserIdMiddleware',
       description: `lenxght of id value incorrect: ${maskSensitiveData(req.params)}`
     });
-    throw new BadRequestError('ERROR_LENGTH_ID', 'invalid length id');
+    throw new BadRequestError('INVALID_LENGTH_ID', 'the id length is invalid');
   }
   return next();
 };
