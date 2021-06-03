@@ -16,8 +16,8 @@ class Facade {
     return await this.Model.findOneAndUpdate(condition, dataToUpdate, options).exec();
   }
 
-  async remove(condition) {
-    return await this.Model.findOneAndRemove(condition).exec();
+  async remove(condition, options = { rawResult: true }) {
+    return await this.Model.findOneAndRemove(condition, options).exec();
   }
 }
 

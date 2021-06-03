@@ -18,6 +18,10 @@ module.exports = {
     update: strToArrMdws(process.env.NODE_CONFIG_MIDDLEWARE_UPDATE_BY_ID_USER) || [
       'check-length-user-id-middleware',
       'update-user-by-id-middleware'
+    ],
+    delete: strToArrMdws(process.env.NODE_CONFIG_MIDDLEWARE_DELETE_BY_ID_USER) || [
+      'check-length-user-id-middleware',
+      'delete-user-by-id-middleware'
     ]
   }
 };
