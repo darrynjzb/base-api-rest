@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const { config } = require('../../../config');
 
-let instance = null;
+let instance;
 
 module.exports = async () => {
   if (instance) {
@@ -15,7 +15,7 @@ module.exports = async () => {
     console.log(`\x1b[32m === Mongodb connected ===`);
     return instance;
   } catch (e) {
-    console.log(`\x1b[31m xxx Error trying to connect to mongodb: ${e.message} xxx`);
+    console.log(`\x1b[31m xxx Error trying to connect to mongodb: ${e.message}`);
     process.exit(1);
   }
 }

@@ -15,6 +15,12 @@ module.exports = {
     mongodb: {
       host: process.env.MONGODB_HOST || 'mongodb://localhost:27017',
       databaseName: process.env.MONGODB_DATABASE_NAME || 'project'
+    },
+    redis: {
+      host: process.env.REDIS_HOST || '127.0.0.1',
+      port: Number(process.env.REDIS_PORT) || 6379,
+      password: process.env.REDIS_PASSWORD || 'sOmE_sEcUrE_pAsS',
+      ttl: Number(process.env.REDIS_TTL) || 86400,
     }
   }
 };
