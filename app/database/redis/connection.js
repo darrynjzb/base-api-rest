@@ -18,7 +18,7 @@ const getConnection = () => {
   }
 };
 
-module.exports = () => {
+const initConnection = () => {
   getConnection();
   instance.on('connect', () => {
     console.debug(`\x1b[32m === Redis connection OK ===`);
@@ -29,4 +29,9 @@ module.exports = () => {
   instance.on('ready', () => {
     console.debug(`\x1b[32m === Redis ready ===`);
   });
+};
+
+module.exports = {
+  initConnection,
+  getConnection
 };

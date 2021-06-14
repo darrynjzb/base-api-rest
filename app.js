@@ -50,7 +50,7 @@ app.use((req, res) => {
     connection = require('./app/database/mongodb/connection');
   }
   if (driver === 'redis') {
-    connection = require('./app/database/redis/connection');
+    connection = require('./app/database/redis/connection').initConnection;
   }
   await connection();
 })();
