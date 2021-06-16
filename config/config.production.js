@@ -11,10 +11,16 @@ module.exports = {
     blacklistMask: process.env.NODE_CONFIG_API_BLACKLIST_MASK
   },
   database: {
-    driver: process.env.DATABASE_DRIVER,
+    drivers: process.env.DATABASE_DRIVERS,
     mongodb: {
       host: process.env.MONGODB_HOST,
       databaseName: process.env.MONGODB_DATABASE_NAME,
+    },
+    redis: {
+      host: process.env.REDIS_HOST,
+      port: Number(process.env.REDIS_PORT),
+      password: process.env.REDIS_PASSWORD,
+      ttl: Number(process.env.REDIS_TTL)
     }
   }
 };
