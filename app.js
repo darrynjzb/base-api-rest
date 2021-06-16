@@ -45,12 +45,13 @@ app.use((req, res) => {
 // database check dependencies
 (async () => {
   let connection;
-  const driver = config.database.driver;
-  if (driver === 'mongodb') {
-    connection = require('./app/database/mongodb/connection');
-  }
-  if (driver === 'redis') {
-    connection = require('./app/database/redis/connection').initConnection;
-  }
-  await connection();
+  config.database.drivers.split(',').forEach(async (driver) => {
+    if (driver === 'mongodb') {
+      connection = require('./app/database/mongodb/connection');
+    }
+    if (driver === 'redis') {
+      connection = require('./app/database/redis/connection').initConnection;
+    }
+    await connection();
+  });
 })();

@@ -11,7 +11,7 @@ module.exports = {
     blacklistMask: process.env.NODE_CONFIG_API_BLACKLIST_MASK || 'password,document'
   },
   database: {
-    driver: process.env.DATABASE_DRIVER || 'mongodb',
+    drivers: process.env.DATABASE_DRIVERS || 'mongodb,redis',
     mongodb: {
       host: process.env.MONGODB_HOST || 'mongodb://localhost:27017',
       databaseName: process.env.MONGODB_DATABASE_NAME || 'project'

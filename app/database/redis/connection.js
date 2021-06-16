@@ -25,6 +25,7 @@ const initConnection = () => {
   });
   instance.on('error', (err) => {
     console.error(`\x1b[32m === Error connection redis: ${err.message} ===`);
+    process.exit(1);
   });
   instance.on('ready', () => {
     console.debug(`\x1b[32m === Redis ready ===`);
