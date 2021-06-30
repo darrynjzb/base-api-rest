@@ -42,9 +42,15 @@ app.use((req, res) => {
   return res.status(404).send({ code: 'NOT_FOUND_ROUTE', message: `route ${req.url} not found` });
 });
 
-// database check dependencies
+const initSocket = () => {
+  const socket = require('./app/events/socket-connection');
+  socket(app);
+};
+
+// init dependencies
 (async () => {
   let connection;
+  // init databases by drivers
   config.database.drivers.split(',').forEach(async (driver) => {
     if (driver === 'mongodb') {
       connection = require('./app/database/mongodb/connection');
@@ -54,4 +60,5 @@ app.use((req, res) => {
     }
     await connection();
   });
+  initSocket();
 })();

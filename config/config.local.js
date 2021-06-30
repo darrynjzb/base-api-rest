@@ -22,5 +22,10 @@ module.exports = {
       password: process.env.REDIS_PASSWORD || 'sOmE_sEcUrE_pAsS',
       ttl: Number(process.env.REDIS_TTL) || 86400,
     }
+  },
+  events: {
+    socket: {
+      port: Number(process.env.SOCKET_PORT) || 3000
+    }
   }
 };
