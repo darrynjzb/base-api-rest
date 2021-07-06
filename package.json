@@ -25,10 +25,15 @@
     "lodash": "^4.17.21",
     "mask-json": "^1.0.3",
     "moment": "^2.29.1",
-    "mongoose": "^5.12.11"
+    "mongoose": "^5.12.11",
+    "socket.io": "^4.1.2"
   },
   "devDependencies": {
     "eslint": "^7.26.0",
     "nodemon": "^2.0.7"
+  },
+  "optionalDependencies": {
+    "bufferutil": "^4.0.3",
+    "utf-8-validate": "^5.0.5"
   }
 }
