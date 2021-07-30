@@ -6,13 +6,29 @@
   "scripts": {
     "start-local": "nodemon app.js",
     "eslint-check": "esw app.js ./app/**/*.js ./app/**/**/*.js ./config/*.js ./config/**/*.js -w",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "unit-test-w": "mocha ./app/**/*.spec.js ./app/**/**/*.spec.js ./app/**/**/**/*.spec.js -w",
+    "coverage": "nyc --reporter=text-summary mocha ./app/**/*.spec.js ./app/**/**/*.spec.js ./app/**/**/**/*.spec.js",
+    "coverage-report": "nyc mocha ./app/**/*.spec.js ./app/**/**/*.spec.js ./app/**/**/**/*.spec.js"
   },
   "author": "Darryn Briceño",
   "license": "ISC",
+  "nyc": {
+    "include": [
+      "./app/*.js",
+      "./app/**/*.js",
+      "./app/**/**/*.js"
+    ],
+    "exclude": [
+      "**/*.spec.js",
+      "**/**/*.spec.js",
+      "**/**/**/*.spec.js"
+    ],
+    "all": true
+  },
   "dependencies": {
     "app-root-path": "^3.0.0",
     "body-parser": "^1.19.0",
+    "chai": "^4.3.4",
     "compression": "^1.7.4",
     "cors": "^2.8.5",
     "dotenv": "^9.0.2",
@@ -24,8 +40,11 @@
     "joi": "^17.4.0",
     "lodash": "^4.17.21",
     "mask-json": "^1.0.3",
+    "mocha": "^9.0.2",
+    "mockery": "^2.1.0",
     "moment": "^2.29.1",
     "mongoose": "^5.12.11",
+    "nyc": "^15.1.0",
     "socket.io": "^4.1.2"
   },
   "devDependencies": {
