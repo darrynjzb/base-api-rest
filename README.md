@@ -20,11 +20,11 @@ The specfic configurations are in **config**.
 ## To run  local
 
 ```sh
-npm run start-local
+npm run local-w
 ```
 ## Postman collection
 
-The is a postman collection to test the endpoints locally. The collection is in **app/collections/postman-collection.json**
+The is a postman collection to test the endpoints locally. The collection is in **app/postmane-collection/collection.json**
 
 ## TODO
 
