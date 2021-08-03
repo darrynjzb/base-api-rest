@@ -1,4 +1,4 @@
-const middlewares = require('./default/array-of-middlewares');
+const middlewares = require('./default/middlewares');
 
 module.exports = {
   middlewares,
